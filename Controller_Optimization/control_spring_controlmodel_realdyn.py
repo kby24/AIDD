@@ -5,7 +5,6 @@ from model import *
 from tools import *
 import argparse
 
-
 # configuration
 HYP = {
     'node_size': 10, #node size
@@ -28,7 +27,6 @@ parser.add_argument('--control_steps', type=int, default=20, help='control steps
 parser.add_argument('--exp_id', type=int, default=1, help='experiment_id, default=1')
 parser.add_argument('--device_id', type=int, default=3, help='Gpu_id, default=5')
 args = parser.parse_args()
-
 torch.cuda.set_device(args.device_id)
 start_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 print('start_time:', start_time)
@@ -53,10 +51,6 @@ loc_std = 0.5
 vel_norm = 0.5
 interaction_strength = 0.1
 _max_F = 0.1 /_delta_T
-
-
-
-
 
 
 def train():
