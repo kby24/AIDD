@@ -6,7 +6,6 @@ from model import *
 from tools import *
 import argparse
 
-
 # configuration
 HYP = {
     'hid': 128,  # hidden size
