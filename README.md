@@ -5,10 +5,15 @@ This repository will contain the official PyTorch implementation of:
 **Automated Discovery of Interactions and Dynamics for Large Networked Dynamical Systems**
 
 Yan Zhang1, Yu Guo2,3, Zhang Zhang1, Mengyuan Chen1, Shuo Wang1, and Jiang Zhang1,*
+
 1Beijing Normal University, Beijing, China
+
 2State Key Laboratory for Novel Software Technology at Nanjing University, Nanjing, China
+
 3Software Institute, Nanjing University, Nanjing, China
+
 *zhangjiang@bnu.edu.cn
+
 https://arxiv.org/abs/2101.00179
 
 ## ABSTRACT
