@@ -1,8 +1,6 @@
-
 import torch
 from scipy.optimize import linear_sum_assignment
 def sgraphmatch(A,B,m,iteration):
-
     totv = A.shape[0]
     n = totv-m
     start = torch.ones(n,n).cuda()*(1/n)
