@@ -4,7 +4,6 @@ import torch.nn.functional as F
 from torch.nn.parameter import Parameter
 from torch.nn import init
 import numpy as np
-
 use_cuda = torch.cuda.is_available()
 
 
