@@ -9,6 +9,7 @@ import argparse
 
 # configuration
 HYP = {
+    'node_size': 100,
     'hid': 128,  # hidden size
     'epoch_num': 1000,  # epoch
     'batch_size': 2048,  # batch size 2048
@@ -25,7 +26,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--nodes', type=int, default=100, help='Number of nodes, default=10')
 parser.add_argument('--network', type=str, default='ER', help='type of network')
 parser.add_argument('--sys', type=str, default='cmn', help='simulated system to model,spring or cmn')
-parser.add_argument('--dim', type=int, default=1, help='# information dimension of each node spring:4 cmn:1 ')
+parser.add_argument('--dim', type=int, default=1, help='# information dimension of each node cmn:1 ')
 parser.add_argument('--exp_id', type=int, default=1, help='experiment_id, default=1')
 parser.add_argument('--device_id', type=int, default=5, help='Gpu_id, default=5')
 args = parser.parse_args()

@@ -180,7 +180,6 @@ def constructor_evaluator(gumbel_generator, tests, obj_matrix,e):
     fnr_list = []
     f1_list=[]
     auc_list=[]
-    soft_auc_list=[]
 
     obj_matrix = torch.from_numpy(obj_matrix)
     for t in range(tests):
@@ -192,8 +191,6 @@ def constructor_evaluator(gumbel_generator, tests, obj_matrix,e):
 
         out_matrix = gumbel_generator.sample_all(hard=True, epoch=e)
         out_matrix = out_matrix.cpu()
-        fpr, tpr, threshold = roc_curve(obj_matrix.numpy().reshape(-1), out_matrix.numpy().reshape(-1))
-        roc_auc = auc(fpr, tpr)
         err = torch.sum(torch.abs(out_matrix - obj_matrix))
 
         err = err.cpu() if use_cuda else err
@@ -216,8 +213,8 @@ def constructor_evaluator(gumbel_generator, tests, obj_matrix,e):
         tnr_list.append(tnr)
         fnr_list.append(fnr)
         f1_list.append(f1_score)
-        auc_list.append(auc)
-        soft_auc_list.append(soft_auc)
+        auc_list.append(soft_auc)
+
     print('err:', np.mean(err_list))
     print('tp:', np.mean(tp_list))
     print('tn:', np.mean(tn_list))
@@ -229,7 +226,6 @@ def constructor_evaluator(gumbel_generator, tests, obj_matrix,e):
     print('fnr:', np.mean(fnr_list))
     print('f1:', np.mean(f1_list))
     print('auc:', np.mean(auc_list))
-    print('soft_auc:', np.mean(soft_auc_list))
 
 
 

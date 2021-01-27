@@ -32,7 +32,7 @@ args = parser.parse_args()
 
 torch.cuda.set_device(args.device_id)
 
-node_num = args.nodes-args.del_node
+
 
 start_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 print('start_time:', start_time)

@@ -1,4 +1,5 @@
 
+
 import random
 import time
 import numpy as np
@@ -7,26 +8,28 @@ import torch
 import networkx as nx
 import pickle
 
-# data volume = num-samples/length
 parser = argparse.ArgumentParser()
 parser.add_argument('--simulation', type=str, default='voter',
                     help='What simulation to generate.')
-parser.add_argument('--num-samples', type=int, default=480,
+parser.add_argument('--num_samples', type=int, default=2000,
                     help='Number of training simulations to generate.')
 
 parser.add_argument('--length', type=int, default=50,
                     help='Length of trajectory.')
 
-parser.add_argument('--n_nodes', type=int, default=100,
+parser.add_argument('--n_nodes', type=int, default=1133,
                     help='Number of balls in the simulation.')
-parser.add_argument('--network', type=str, default='ER',
+parser.add_argument('--network', type=str, default='EMAIL',
                     help='network of the simulation')
+
 
 parser.add_argument('--seed', type=int, default=42,
                     help='Random seed.')
+
 args = parser.parse_args()
 
-
+# torch.cuda.set_device(3)
+# use_cuda = torch.cuda.is_available()
 
 
 simulates = np.zeros((args.num_samples*args.length,args.n_nodes))
@@ -99,37 +102,95 @@ def spread_prob(dg, innodes, step=100):
     return np.array(data)
 
 def generate_network():
-    if args.network == 'ER':
-        print('ER')
-        G = nx.random_graphs.erdos_renyi_graph(args.n_nodes, 0.04)
+    if args.network == 'ROAD':
+        print('ROAD')
+        G = nx.Graph()
+        node_num = 1174
+        for i in range(node_num):
+            G.add_node(i, value=random.randint(0, 1))
+        path = './real_network_data/out.subelj_euroroad_euroroad'
+        # 读取文件
+        f = open(path)
+        flag = 0
+        for line in f:
+            if flag < 2:
+                flag = flag + 1
+                continue
+            first = int(line.split(' ')[0]) - 1
+            second = int(line.split(' ')[1]) - 1
+            G.add_edge(first, second)
+        print(len(G.edges()))
 
+    if args.network== 'BLOG':
+        print('BLOG')
+        G = nx.DiGraph()
+        node_num = 1224
+        for i in range(node_num):
+            G.add_node(i, value=random.randint(0, 1))
+        path = './real_network_data/out.moreno_blogs_blogs'
+        # 读取文件
+        f = open(path)
+        flag = 0
+        for line in f:
+            if flag < 2:
+                flag = flag + 1
+                continue
+            first = int(line.split(' ')[0]) - 1
+            second = int(line.split(' ')[1]) - 1
+            G.add_edge(first, second)
+        print(len(G.edges()))
 
-    if args.network== 'WS':
-        print('WS')
-        G = nx.random_graphs.watts_strogatz_graph(args.n_nodes, 2, 0.3)
+    if args.network == 'EMAIL':
+        print('EMAIL')
+        G=nx.Graph()
+        node_num = 1133
+        for i in range(node_num):
+            G.add_node(i, value=random.randint(0, 1))
+        path = './real_network_data/out.arenas-email'
+        # 读取文件
+        f = open(path)
+        flag = 0
+        for line in f:
+            if flag < 2:
+                flag = flag + 1
+                continue
+            first = int(line.split(' ')[0]) - 1
+            second = int(line.split(' ')[1]) - 1
+            G.add_edge(first, second)
+        print(len(G.edges()))
 
-    if args.network == 'BA':
-        print('BA')
-        G = nx.random_graphs.barabasi_albert_graph(args.n_nodes, 1)
+    if args.network == 'DORM':
+        print('DORM')
+        G=nx.DiGraph()
+        node_num = 217
+        for i in range(node_num):
+            G.add_node(i, value=random.randint(0, 1))
+        path = './real_network_data/out.moreno_oz_oz'
+        # 读取文件
+        f = open(path)
+        flag = 0
+        for line in f:
+            if flag < 2:
+                flag = flag + 1
+                continue
+            first = int(line.split(' ')[0]) - 1
+            second = int(line.split(' ')[1]) - 1
+            G.add_edge(first, second)
+        print(len(G.edges()))
 
-    if args.network not in ['ER', 'WS', 'BA']:
-        print('error')
-        exit(0)
     return G
 
-#Generate data for multiple experiments at once
-for exp_id in range(1,11):
-
+for exp_id in range(1,4):
     dg = generate_network()
     edges = nx.adjacency_matrix(dg).toarray()
+    print(edges)
     innodes = get_innode(edges)
 
-    print('Simulating time series...')
+
     for i in range(args.num_samples):
         init_node(dg)
         data = spread_prob(dg,  innodes,step=args.length-1)
         simulates[i*args.length:(i+1)*args.length,:] = data
-    print('Simulation finished!')
 
     print(simulates.shape)
     print(str(np.sum(edges)))
@@ -138,7 +199,7 @@ for exp_id in range(1,11):
 
     # save the data
     # save time series data
-    #data path
+    # data path
     series_path = './data/voter_' + args.network + '_' + str(args.n_nodes) + '_id' + str(exp_id) + '_data.pickle'
     adj_path = './data/voter_' + args.network + '_' + str(args.n_nodes) + '_id' + str(exp_id) + '_adj.pickle'
 
@@ -147,4 +208,5 @@ for exp_id in range(1,11):
 
     with open(adj_path, 'wb') as f:
         pickle.dump(edges, f)
+
 

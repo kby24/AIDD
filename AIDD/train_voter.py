@@ -44,7 +44,7 @@ generator.init(0, 0.1)
 op_net = optim.Adam(generator.parameters(), lr=HYP['lr_net'])
 
 # dyn learner
-dyn_isom = IO_B(args.dim, HYP['hid']).to(device)
+dyn_isom = IO_B_Voter(args.dim, HYP['hid']).to(device)
 # dyn learner  optimizer
 op_dyn = optim.Adam(dyn_isom.parameters(), lr=HYP['lr_dyn'])
 
