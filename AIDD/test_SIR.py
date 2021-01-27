@@ -19,7 +19,6 @@ HYP = {
     'drop_frac': 1,  # temperature drop frac
 }
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--nodes', type=int, default=371, help='Number of nodes, default=10')
 parser.add_argument('--sys', type=str, default='SIR', help='simulated system to model,spring or cmn')

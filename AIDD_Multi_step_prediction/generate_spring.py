@@ -10,7 +10,7 @@ n_ball = 100
 # data volume = sample_T/sample_frequence
 sample_T = 55000000
 sample_frequence = 100
-
+#network
 net = 'ER'
 
 #use_cuda = torch.cuda.is_available()

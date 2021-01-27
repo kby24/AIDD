@@ -18,7 +18,6 @@ HYP = {
     'temp': 1,  # temperature
     'drop_frac': 1,  # temperature drop frac
 }
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--nodes', type=int, default=100, help='Number of nodes, default=10')
 parser.add_argument('--network', type=str, default='BA', help='type of network')
@@ -66,8 +65,6 @@ def OneStepDiffusionDynamics(thetas,s=coupling,obj_matrix=object_matrix.to(devic
 def logistic_map(x, lambd=lambd):
     # return 1 - lambd * x ** 2
     return lambd * x * (1 - x)
-
-
 
 
 def train():

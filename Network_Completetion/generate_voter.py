@@ -1,4 +1,3 @@
-
 import random
 import time
 import numpy as np
@@ -25,8 +24,6 @@ parser.add_argument('--network', type=str, default='ER',
 parser.add_argument('--seed', type=int, default=42,
                     help='Random seed.')
 args = parser.parse_args()
-
-
 
 
 simulates = np.zeros((args.num_samples*args.length,args.n_nodes))

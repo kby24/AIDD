@@ -6,13 +6,13 @@ from model import *
 from tools import *
 import argparse
 
-
 # configuration
 HYP = {
     'node_size': 100,
     'hid': 128,  # hidden size
     'epoch_num': 1000,  # epoch
     'batch_size': 2048,  # batch size 2048
+    'node_size':100,# node size
     'lr_net': 0.004,  # lr for net generator
     'lr_dyn': 0.001,  # lr for dyn learner
     'lr_stru': 0.0001 ,  # lr for structural loss 0.0001 1000：0.001

@@ -1,4 +1,3 @@
-
 import torch
 import time
 import sys
@@ -70,8 +69,6 @@ print("has structure parameter:", HYP)
 del_num = int(args.nodes * args.miss_percent)
 print("del_num", del_num)
 known_num = args.nodes-del_num
-
-
 torch.cuda.set_device(args.device_id)
 print('cuda:', args.device_id)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

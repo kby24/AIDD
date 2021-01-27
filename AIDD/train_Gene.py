@@ -6,7 +6,6 @@ from model import *
 from tools import *
 import argparse
 
-
 # configuration
 HYP = {
     'node_size': 100,
@@ -21,7 +20,6 @@ HYP = {
     'temp': 1,  # temperature
     'drop_frac': 1,  # temperature drop frac
 }
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--nodes', type=int, default=100, help='Number of nodes, default=10')

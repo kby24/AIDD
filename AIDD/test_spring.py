@@ -4,7 +4,6 @@ from model import *
 from tools import *
 import argparse
 
-
 # configuration
 HYP = {
     'node_size': 100,
@@ -20,7 +19,6 @@ HYP = {
     'drop_frac': 1,  # temperature drop frac
 }
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--nodes', type=int, default=100, help='Number of nodes, default=10')
 parser.add_argument('--network', type=str, default='ER', help='type of network')
@@ -34,7 +32,6 @@ torch.cuda.set_device(args.device_id)
 start_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 print('start_time:', start_time)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 
 # model load path
 dyn_path = './model/dyn_spring_' + args.network + '_' + str(args.nodes) + '_id' + str(args.exp_id) + '.pkl'

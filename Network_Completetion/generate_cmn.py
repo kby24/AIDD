@@ -9,8 +9,6 @@ import random
 torch.cuda.set_device(2)
 use_cuda = torch.cuda.is_available()
 
-
-
 parser = argparse.ArgumentParser()
 # data volume = samples * eolving-steps
 parser.add_argument('--nodes', type=int, default=100, help='Number of nodes, default=10')

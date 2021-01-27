@@ -28,7 +28,6 @@ parser.add_argument('--control_steps', type=int, default=20, help='control steps
 parser.add_argument('--exp_id', type=int, default=1, help='experiment_id, default=1')
 parser.add_argument('--device_id', type=int, default=3, help='Gpu_id, default=5')
 args = parser.parse_args()
-
 torch.cuda.set_device(args.device_id)
 
 start_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())

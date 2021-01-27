@@ -14,7 +14,6 @@ from networkx.classes.graph import Graph
 # if use cuda
 use_cuda = torch.cuda.is_available()
 
-
 def calc_tptnfpfn(out,adj):
     tp = 0
     fp = 0
