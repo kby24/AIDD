@@ -18,9 +18,7 @@ https://arxiv.org/abs/2101.00179
 
 ## ABSTRACT
 
-Understanding the mechanisms of complex systems is very important. According to specific dynamic rules, a networked dynamical system, understanding a system as a group of nodes interacting on a given network, is a powerful tool for modeling complex systems. However, finding such models according to the time series of behaviors is hard. Conventional methods
-can work well only on small networks and some types of dynamics. This paper proposes a unified framework for Automated Interaction network and Dynamics Discovery (AIDD) on various network structures and dynamics based on a stochastic gradient descent algorithm. The experiments show that AIDD can be applied to large systems with thousands of nodes and
-robust against noise and missing information. We further propose a new method to test data-driven models based on control experiments. The results show that AIDD has learned the real network dynamics correctly.
+Understanding the mechanisms of complex systems is very important. According to specific dynamic rules, a networked dynamical system, understanding a system as a group of nodes interacting on a given network, is a powerful tool for modelling complex systems. However, finding such models according to time series of behaviours is difficult. Conventional methods can work well only on small networks and for some types of dynamics. This paper proposes a unified framework for an automated interaction network and dynamics discovery (AIDD) on various network structures and dynamics, based on a stochastic gradient descent algorithm. The experiments show that AIDD can be applied to large systems with thousands of nodes and is robust against noise and missing information. We further propose a new method to test data-driven models based on control experiments. The results show that AIDD is able to learn the real network dynamics correctly.
 
 ## Requirements
 
