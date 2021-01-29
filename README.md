@@ -172,4 +172,13 @@ nohup python -u train_voter_completetion.py > train_voter_completetion.txt 2>&1 
 ## Cite
 
 If you use this code in your own work, please cite our paper
+```
+@article{zhang2021automated,
+  title={Automated Discovery of Interactions and Dynamics for Large Networked Dynamical Systems},
+  author={Zhang, Yan and Guo, Yu and Zhang, Zhang and Chen, Mengyuan and Wang, Shuo and Zhang, Jiang},
+  journal={arXiv preprint arXiv:2101.00179},
+  year={2021}
+}
+```
+
 
