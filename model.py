@@ -24,7 +24,7 @@ class IO_B(nn.Module):
         # x : features of all nodes at time t,[b*n*d]
         # adj_col : i th column of adj mat,[n*1]
         # i : just i
-        #num =node_num//node_size
+        #num =node_num//node_size ,node_num is the total number of nodes
         #node_size: In order to save memory, the information of node i is only
         # combined with the information of node_size nodes at a time
         #eg.We have a total of 2000 node information,
@@ -77,7 +77,7 @@ class IO_B_Voter(nn.Module):
         # x : features of all nodes at time t,[b*n*d]
         # adj_col : i th column of adj mat,[n*1]
         # i : just i
-        #num =node_num//node_size
+        #num =node_num//node_size ,node_num is the total number of nodes
         #node_size: In order to save memory, the information of node i is only
         # combined with the information of node_size nodes at a time
         #eg.We have a total of 2000 node information,
