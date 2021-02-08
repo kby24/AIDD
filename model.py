@@ -24,6 +24,12 @@ class IO_B(nn.Module):
         # x : features of all nodes at time t,[b*n*d]
         # adj_col : i th column of adj mat,[n*1]
         # i : just i
+        #num =node_num//node_size
+        #node_size: In order to save memory, the information of node i is only
+        # combined with the information of node_size nodes at a time
+        #eg.We have a total of 2000 node information,
+        # and setting node_size to 800 means that the i-th node only ocombined with the information of 800 nodes at a time at a time.
+        # At this time, num=2000//800=2
         starter = x[:, i, :]
         x_total_sum = 0
         for n in range(num + 1):
@@ -71,6 +77,12 @@ class IO_B_Voter(nn.Module):
         # x : features of all nodes at time t,[b*n*d]
         # adj_col : i th column of adj mat,[n*1]
         # i : just i
+        #num =node_num//node_size
+        #node_size: In order to save memory, the information of node i is only
+        # combined with the information of node_size nodes at a time
+        #eg.We have a total of 2000 node information,
+        # and setting node_size to 800 means that the i-th node only ocombined with the information of 800 nodes at a time at a time.
+        # At this time, num=2000//800=2
         starter = x[:, i, :]
         x_total_sum = 0
         for n in range(num + 1):
