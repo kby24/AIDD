@@ -519,7 +519,7 @@ def load_cmn_completetion( batch_size=128, node_num=10, network='ER',exp_id=1):
     val_data = states_r(val_data, order, new_order, 'cmn')
     test_data = states_r(test_data, order, new_order, 'cmn')
 
-    order_data_path='./data/cml_random_' + network + '_' + str(node_num) + '_id' + str(exp_id) + '.pickle'
+    order_data_path='./data/cmn_random_' + network + '_' + str(node_num) + '_id' + str(exp_id) + '.pickle'
     results = [object_matrix, train_data, val_data, test_data]
     with open(order_data_path, 'wb') as f:
         pickle.dump(results, f)
@@ -935,9 +935,9 @@ def cal_tpfp(pre, true_adj, mask):
     return (f1, err, tp, fn, fp, tn, tpr, fpr)
 
 
-def states_r(states, order, new_order, data_type='cml'):
+def states_r(states, order, new_order, data_type='cmn'):
     new_states = torch.zeros_like(states)
-    if data_type == 'cml':
+    if data_type == 'cmn':
         for i, j in zip(order, new_order):
             new_states[:, i, :, :] = states[:, j, :, :]
     if data_type == 'voter':

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 import random
@@ -211,7 +210,6 @@ for exp_id in range(1,4):
         pickle.dump(edges, f)
 
 
-=======
 
 
 import random
@@ -424,4 +422,4 @@ for exp_id in range(1,4):
         pickle.dump(edges, f)
 
 
->>>>>>> 6c45adb654db0d0e15aef87f67829f84055dd108
+
